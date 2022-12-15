@@ -28,7 +28,7 @@ cmake .. \
 cmake --build . -j
 
 cd ..
-export CIRCT_SYS_CIRCT_DIR=$PWD
-export CIRCT_SYS_CIRCT_BUILD_DIR=$PWD/build
-export CIRCT_SYS_LLVM_DIR=$PWD/llvm
-export CIRCT_SYS_LLVM_BUILD_DIR=$PWD/llvm/build
+echo "export CIRCT_SYS_CIRCT_DIR=$PWD" >> env.sh
+echo "export CIRCT_SYS_CIRCT_BUILD_DIR=$PWD/build" >> env.sh
+echo "export CIRCT_SYS_LLVM_DIR=$PWD/llvm" >> env.sh
+echo "export CIRCT_SYS_LLVM_BUILD_DIR=$PWD/llvm/build" >> env.sh
