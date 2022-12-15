@@ -8,7 +8,6 @@ A rust system-level binding to [circt](https://circt.llvm.org).
 ```bash
 git clone https://github.com/llvm/circt
 cd circt
-git checkout sifive/1/24/0
 git submodule update --init --recursive
 ```
 * Build LLVM
@@ -40,4 +39,20 @@ cmake .. \
     -DLLVM_DIR=$PWD/../llvm/build/lib/cmake/llvm \
     -DLLVM_ENABLE_ASSERTIONS=ON
 cmake --build . -j
+```
+
+* Setup Environment
+```bash
+cd ..
+export CIRCT_SYS_CIRCT_DIR=$PWD
+export CIRCT_SYS_CIRCT_BUILD_DIR=$PWD/build
+export CIRCT_SYS_LLVM_DIR=$PWD/llvm
+export CIRCT_SYS_LLVM_BUILD_DIR=$PWD/llvm/build
+```
+
+* Setup circt-sys
+```bash
+git clone https://github.com/Entropy-xcy/circt-sys
+cd circt-sys
+cargo build
 ```

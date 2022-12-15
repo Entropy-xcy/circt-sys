@@ -1,6 +1,5 @@
 git clone https://github.com/llvm/circt
 cd circt
-git checkout sifive/1/24/0
 git submodule update --init --recursive
 
 cd llvm
