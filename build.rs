@@ -56,6 +56,7 @@ fn main() {
     // Locate `llvm-config` to figure out what to link.
     let llvm_config_bin = llvm_build_dir.join("bin").join("llvm-config");
     let llvm_lib_dir = llvm_config_run(&llvm_config_bin, "--libdir");
+    println!("cargo:warning=llvm_lib_dir={}", llvm_lib_dir);
     let llvm_include_dir = llvm_config_run(&llvm_config_bin, "--includedir");
 
     // Library search paths
@@ -98,7 +99,7 @@ fn main() {
         "CIRCTSystemC",
         "CIRCTSeqTransforms",
         "CIRCTESI",
-        "llvm_gtest_main",
+        // "llvm_gtest_main",
         "CIRCTCAPIComb",
         "CIRCTFSM",
         "CIRCTAnalysisTestPasses",
@@ -139,7 +140,7 @@ fn main() {
         "CIRCTScheduling",
         "CIRCTExportSystemC",
         "CIRCTCAPISV",
-        "llvm_gtest",
+        // "llvm_gtest",
         "CIRCTLLHDSimEngine",
         "CIRCTCAPIFIRRTL",
         "CIRCTFIRRTLToHW",
@@ -149,31 +150,33 @@ fn main() {
         "CIRCTCAPIExportVerilog",
         "CIRCTTransforms",
 
-        // "LLVMBinaryFormat",
-        // "LLVMBitstreamReader",
-        // "LLVMCore",
-        // "LLVMRemarks",
-        // "LLVMSupport",
-        // "MLIRAnalysis",
+        "LLVMBinaryFormat",
+        "LLVMBitstreamReader",
+        "LLVMCore",
+        "LLVMRemarks",
+        "LLVMSupport",
+        "LLVMDemangle",
+
+        "MLIRAnalysis",
         // "MLIRArithmeticDialect",
-        // "MLIRCAPIFunc",
-        // "MLIRCAPIIR",
-        // "MLIRCAPIControlFlow",
-        // "MLIRCallInterfaces",
-        // "MLIRControlFlowDialect",
-        // "MLIRControlFlowInterfaces",
-        // "MLIRFuncDialect",
-        // "MLIRIR",
-        // "MLIRInferTypeOpInterface",
-        // "MLIRInferIntRangeInterface",
-        // "MLIRPDLToPDLInterp",
-        // "MLIRParser",
-        // "MLIRPass",
-        // "MLIRRewrite",
-        // "MLIRSideEffectInterfaces",
-        // "MLIRSupport",
-        // "MLIRTransformUtils",
-        // "MLIRTransforms",
+        "MLIRCAPIFunc",
+        "MLIRCAPIIR",
+        "MLIRCAPIControlFlow",
+        "MLIRCallInterfaces",
+        "MLIRControlFlowDialect",
+        "MLIRControlFlowInterfaces",
+        "MLIRFuncDialect",
+        "MLIRIR",
+        "MLIRInferTypeOpInterface",
+        "MLIRInferIntRangeInterface",
+        "MLIRPDLToPDLInterp",
+        "MLIRParser",
+        "MLIRPass",
+        "MLIRRewrite",
+        "MLIRSideEffectInterfaces",
+        "MLIRSupport",
+        "MLIRTransformUtils",
+        "MLIRTransforms",
     ];
     for name in &lib_names {
         println!("cargo:rustc-link-lib=static={}", name);
